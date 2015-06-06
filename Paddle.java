@@ -3,7 +3,8 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Graphics; 
 
-public class Paddle extends JPanel{
+
+public class Paddle extends JPanel {
 
 	private static final long serialVersionUID = 180016842234982117L;
 	
@@ -23,5 +24,8 @@ public class Paddle extends JPanel{
 		g.setColor(Color.WHITE);
 		g.fillRect(x, y, width, height);
     }
+	
+	
+	
 	
 }

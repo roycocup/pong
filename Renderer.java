@@ -1,5 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 
 import javax.swing.JPanel;
 
@@ -9,11 +11,15 @@ import javax.swing.JPanel;
  * We get all the components into this Panel via Pong main class (all static)
  * and then PAINT each one (not add) them in the paintComponent method
  */
-public class Renderer extends JPanel{
+public class Renderer extends JPanel implements MouseMotionListener{
 
 	
 	private static final long serialVersionUID = 13453462352523L;
 	
+	
+	public Renderer(){
+		addMouseMotionListener(this);
+	}
 	
 	@Override
 	public void paintComponent(Graphics g)
@@ -26,6 +32,14 @@ public class Renderer extends JPanel{
 		
 	}
 	
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		Pong.paddle_left.y = e.getY();
+	}
+
+
+	@Override
+	public void mouseDragged(MouseEvent e) {}
 	
 	
 }
