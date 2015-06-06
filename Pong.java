@@ -3,6 +3,8 @@ import javax.swing.JFrame;
 public class Pong {
 
 	public Renderer renderer = new Renderer();
+	public static Ai ai = new Ai();
+	public static Display display = new Display();
 	public static Ball ball = new Ball();
 	public static Paddle paddle_left ;
 	public static Paddle paddle_right;
@@ -46,8 +48,7 @@ public class Pong {
 	public void update()
 	{
 		ball.update();
-//		paddle_right.update();
-//		paddle_left.update();
+		ai.update();
 		try{
             Thread.sleep(game_speed);
             renderer.repaint();

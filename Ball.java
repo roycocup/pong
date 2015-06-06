@@ -11,16 +11,16 @@ public class Ball extends JPanel{
     boolean down = true;
     boolean left = false;
     boolean right = true;
-    int step = 1;
+    static double step = 1.3;
 	
 	int radius = 20; 
-	int x = Pong.width/2;  
-	int y = Pong.height/2;
+	double x = Pong.width/2;  
+	double y = Pong.height/2;
 	
 	
 	public void paint(Graphics g) {
 		g.setColor(Color.WHITE);
-		g.fillArc(x, y, radius, radius, 0, 360);
+		g.fillArc((int)x, (int)y, radius, radius, 0, 360);
     }
 	
 	
@@ -45,12 +45,14 @@ public class Ball extends JPanel{
 		
 		// ball at the right wall
 		if( x >= Pong.width-radius){
+			Display.l_score = Display.l_score+1;
 			right = false;
 			left = true;
 		}
 		
 		//ball at the left wall
 		if( x <= 0){
+			Display.r_score++;
 			right = true;
 			left = false;
 		}
@@ -71,12 +73,20 @@ public class Ball extends JPanel{
 	public void detectCollisionWithPaddle()
 	{
 		//get left paddle surface
-		int[] paddle_surface = {Pong.paddle_left.y, Pong.paddle_left.y + Pong.paddle_left.height};
+		int[] l_paddle_surface = {(int) Pong.paddle_left.y, (int) (Pong.paddle_left.y + Paddle.height)};
+		int[] r_paddle_surface = {(int) Pong.paddle_right.y, (int) (Pong.paddle_right.y + Paddle.height)};
 		
 		if (x <= Pong.paddle_left.x + Paddle.width){
-			if (y >= paddle_surface[0] && y <= paddle_surface[1]){
+			if (y >= l_paddle_surface[0] && y <= l_paddle_surface[1]){
 				left = false; 
 				right = true;
+			}
+		}
+		
+		if (x >= Pong.paddle_right.x-Paddle.width/2){
+			if (y >= r_paddle_surface[0] && y <= r_paddle_surface[1]){
+				left = true; 
+				right = false;
 			}
 		}
 		

@@ -29,6 +29,7 @@ public class Renderer extends JPanel implements MouseMotionListener{
 		Pong.ball.paint(g);
 		Pong.paddle_left.paint(g);
 		Pong.paddle_right.paint(g);
+		Pong.display.paint(g);
 		
 	}
 	
@@ -36,7 +37,6 @@ public class Renderer extends JPanel implements MouseMotionListener{
 	public void mouseMoved(MouseEvent e) {
 		Pong.paddle_left.y = e.getY();
 	}
-
 
 	@Override
 	public void mouseDragged(MouseEvent e) {}

@@ -10,8 +10,8 @@ public class Paddle extends JPanel {
 	
 	public static int width = 30;
 	public static int height = 150;
-	public int x = 0;  
-	public int y = 0;
+	public double x = 0;  
+	public double y = 0;
 	
 	
 	public Paddle(int x, int y)
@@ -22,7 +22,7 @@ public class Paddle extends JPanel {
 	
 	public void paint(Graphics g) {
 		g.setColor(Color.WHITE);
-		g.fillRect(x, y, width, height);
+		g.fillRect((int)x, (int)y, width, height);
     }
 	
 	
