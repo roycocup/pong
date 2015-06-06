@@ -2,6 +2,7 @@ import javax.swing.JPanel;
 
 import java.awt.Color;
 import java.awt.Graphics; 
+import java.util.Random;
 
 public class Ball extends JPanel{
 
@@ -11,7 +12,7 @@ public class Ball extends JPanel{
     boolean down = true;
     boolean left = false;
     boolean right = true;
-    static double step = 1.3;
+    static double step = 1.8;
 	
 	int radius = 20; 
 	double x = Pong.width/2;  

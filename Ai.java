@@ -1,11 +1,11 @@
 
 public class Ai {
 
-	double step = Ball.step*0.4;
+	double step = Ball.step*0.7;
 	
 	public Ai()
 	{
-		System.out.print(step);
+//		System.out.print(step);
 	}
 	
 	public void update()
