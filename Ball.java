@@ -14,8 +14,8 @@ public class Ball extends JPanel{
     int step = 1;
 	
 	int radius = 20; 
-	int x = 0;  
-	int y = 0;
+	int x = Pong.width/2;  
+	int y = Pong.height/2;
 	
 	
 	public void paint(Graphics g) {
@@ -27,6 +27,7 @@ public class Ball extends JPanel{
 	public void update()
 	{
 		detectCollisionWithPitch();
+		detectCollisionWithPaddle();
 		
 		if (up)
 			y = y-step;
@@ -67,5 +68,17 @@ public class Ball extends JPanel{
 		}
 	}
 	
-	
+	public void detectCollisionWithPaddle()
+	{
+		//get left paddle surface
+		int[] paddle_surface = {Pong.paddle_left.y, Pong.paddle_left.y + Pong.paddle_left.height};
+		
+		if (x <= Pong.paddle_left.x + Paddle.width){
+			if (y >= paddle_surface[0] && y <= paddle_surface[1]){
+				left = false; 
+				right = true;
+			}
+		}
+		
+	}
 }

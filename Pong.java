@@ -10,7 +10,6 @@ public class Pong {
 	// Pitch size
 	public static final int width = 900; 
 	public static final int height = 500;
-	
     int game_speed = 4;
 	
 	
@@ -56,7 +55,6 @@ public class Pong {
         	e.printStackTrace();
         }
 	}
-	
 	
 
 }
